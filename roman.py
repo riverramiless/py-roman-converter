@@ -3,3 +3,8 @@ def roman_to_int(s):
     total = 0
     for i in range(len(s)):
         val = mapping.get(s[i], 0)
+        if i + 1 < len(s) and val < mapping.get(s[i+1], 0):
+            total -= val
+        else:
+            total += val
+    return total
